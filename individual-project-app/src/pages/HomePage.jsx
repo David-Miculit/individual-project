@@ -1,13 +1,16 @@
-import { getState, saveState } from "../scripts/storage"
+import { Link } from "react-router-dom"
 
 export default function HomePage() {
-  saveState('f1Auth', {isAdmin:false, error:null})//test
-  console.log(getState('f1Auth'))//test
-
   return(
-    <div className="flex flex-col items-center justify-center mt-20">
-      <h1 className="text-5xl font-extrabold mb-4 uppercase tracking-tighter">Welcome</h1>
-      <p className="text-lg opacity-80 mb-8 max-w-2xl text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <div className="flex flex-col items-center justify-center text-center min-h-[80vh] animate-fade-in">
+      <h1 className="text-6xl font-bold mb-2 uppercase tracking-tighter italic">
+        Your <span className="text-red-800">Race Weekend</span> Hub
+      </h1>
+      <p className="text-slate-400 text-lg mb-8">Get F1 session updates, driver times and director notes directly from the track</p>
+      <div className="flex gap-4">
+        <Link to="/dashboard" className="bg-red-800 text-white px-8 py-3 rounded-md font-bold uppercase hover:bg-red-700 transition">Go to dashboard</Link>
+        <Link to="/contact" className="bg-zinc-800 text-white px-8 py-3 rounded-md font-bold uppercase hover:bg-zinc-700 transition">Contact us</Link>
+      </div>
     </div>
   )
 }
