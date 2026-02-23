@@ -1,34 +1,16 @@
-import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Link } from "react-router-dom"
 
-function HomePage() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+export default function HomePage() {
+  return(
+    <div className="flex flex-col items-center justify-center text-center min-h-[80vh] animate-fade-in">
+      <h1 className="text-6xl font-bold mb-2 uppercase tracking-tighter italic">
+        Your <span className="text-red-800">Race Weekend</span> Hub
+      </h1>
+      <p className="text-slate-400 text-lg mb-8">Get F1 session updates, driver times and director notes directly from the track</p>
+      <div className="flex gap-4">
+        <Link to="/dashboard" className="bg-red-800 text-white px-8 py-3 rounded-md font-bold uppercase hover:bg-red-700 transition">Go to dashboard</Link>
+        <Link to="/contact" className="bg-zinc-800 text-white px-8 py-3 rounded-md font-bold uppercase hover:bg-zinc-700 transition">Contact us</Link>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
-
-export default HomePage
