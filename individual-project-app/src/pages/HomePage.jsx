@@ -1,4 +1,9 @@
+import { getState, saveState } from "../scripts/storage"
+
 export default function HomePage() {
+  saveState('f1Auth', {isAdmin:false, error:null})//test
+  console.log(getState('f1Auth'))//test
+
   return(
     <div className="flex flex-col items-center justify-center mt-20">
       <h1 className="text-5xl font-extrabold mb-4 uppercase tracking-tighter">Welcome</h1>
