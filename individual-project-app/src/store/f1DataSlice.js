@@ -9,21 +9,17 @@ const getFilters = () => {
 
     return {
         start: threeMonthsAgo.toISOString().split('T')[0],
-        end: now.toISOString
+        end: now.toISOString()
     }
 }
 
 export const fetchSessions = createAsyncThunk('f1Data/fetchSessions', async () => {
-    try {
         const {start,end} = getFilters()
-        const response = await fetch(`${API}/sessions/dat_start>=${start}&date_start<=${end}`)
-        const data = response.json()
+        const response = await fetch(`${API}/sessions?date_start>=${start}&date_start<=${end}`)
+        const data = await response.json()
         if(Array.isArray(data)) {
             return data.sort((a,b) => new Date(b.date_start) - new Date(a.date_start)).slice(0,10)
         }
-    } catch (err) {
-        console.log("Couldn't fetch API data", err)
-    }
 })
 
 const f1DataSlice = createSlice({
