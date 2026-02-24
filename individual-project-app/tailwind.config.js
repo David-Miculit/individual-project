@@ -10,7 +10,7 @@ export default {
         f1red: '#b91c1c',
       },
       fontFamily: {
-        rubik: ['Rubik'],
+        saira: ['Saira'],
       },
     },
   },
