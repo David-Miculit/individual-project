@@ -17,7 +17,7 @@ export default function MainHeader() {
     return (
         <header className="sticky flex items-center justify-between p-6 border-b border-zinc-900 tracking-widest">
             <NavLink to="/" className={""}>
-                <h2 className="text-2xl font-bold italic uppercase hover:text-f1red">F1 HUB</h2>
+                <h2 className="text-2xl font-bold italic uppercase hover:text-f1red tracking-tightest">F1 HUB</h2>
             </NavLink>
 
             <nav className="flex gap-6 items-center max-[600px]:hidden group">

@@ -17,8 +17,8 @@ export default function HomePage() {
         </p>
 
         <div className="flex gap-4">
-          <Link to="/dashboard" className="border px-8 py-3 rounded-md font-bold uppercase hover:bg-f1red hover:scale-[1.02] transition">Go to dashboard</Link>
-          <Link to="/contact" className="border px-8 py-3 rounded-md font-bold uppercase hover:bg-zinc-700 hover:scale-[1.02] transition">Contact us</Link>
+          <Link to="/dashboard" className="border px-8 py-3 rounded-md font-bold uppercase hover:bg-f1red/80 hover:scale-[1.02] transition">Go to dashboard</Link>
+          <Link to="/contact" className="border px-8 py-3 rounded-md font-bold uppercase hover:bg-zinc-700/80 hover:scale-[1.02] transition">Contact us</Link>
         </div>
       </div>
     </section>
