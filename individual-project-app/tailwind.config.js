@@ -6,8 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        f1red: '#b91c1c',
+      },
       fontFamily: {
-        rubik: ['Rubik'],
+        saira: ['Saira'],
       },
     },
   },

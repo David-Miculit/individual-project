@@ -1,12 +1,14 @@
 import MainHeader from "../components/MainHeader"
 import Footer from "../components/Footer"
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 
 export default function MainLayout() {
+    const isHome = useLocation().pathname=== "/"
+
     return(
-        <div className="min-h-screen flex flex-col bg-zinc-950 text-white font-rubik">
+        <div className="min-h-screen flex flex-col bg-black text-white font-saira">
             <MainHeader />
-            <main className="flex-1 container mx-auto p-4">
+            <main className="flex-1">
                 <Outlet />
             </main>
             <Footer />
