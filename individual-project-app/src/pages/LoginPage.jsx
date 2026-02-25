@@ -25,7 +25,7 @@ function LoginForm() {
         <label className="block text-sm text-zinc-400 mb-1">Email</label>
         <input
           type="email"
-          autoComplete="off"
+          placeholder="email..."
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -38,6 +38,7 @@ function LoginForm() {
         <input
           type="password"
           autoComplete="off"
+          placeholder="password..."
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
