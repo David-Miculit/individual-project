@@ -11,10 +11,10 @@ import Spinner from "./components/Spinner";
 import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import ContactPage from "./pages/ContactPage";
 
 
 // placeholders
-const Contact = () => <div>Contact form TODO</div>
 const AdminPanel = () => <div>Admin Panel TODO</div>
 const SessionPage = () => <div>Session page TODO</div>
 
@@ -27,7 +27,7 @@ ReactDOM.createRoot(entryPoint).render(
           <Route element={<MainLayout/>}>
             <Route index element={<HomePage />} />
             <Route path="/dashboard" element={<DashboardPage/>} />
-            <Route path="/contact" element={<Contact/>} />
+            <Route path="/contact" element={<ContactPage/>} />
             <Route path="/session/:id" element={<SessionPage/>} />
             <Route path="/admin" element={<AdminPanel/>} />
             <Route path="/login" element={<LoginPage/>} />
