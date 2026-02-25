@@ -18,6 +18,7 @@ export const loginUser = createAsyncThunk(
         throw profileError;
       }
 
+      console.log("Logged in with credentials", authData.user, profileData)
       return {
         user: authData.user,
         isAdmin: profileData.is_admin,
@@ -46,6 +47,7 @@ export const registerUser = createAsyncThunk(
         }
       }
 
+      console.log("User sign in with credentials", data.user)
       return {
         user: data.user,
         isAdmin,
@@ -64,6 +66,8 @@ export const logoutUser = createAsyncThunk(
       if (error) {
         throw error;
       }
+
+      console.log("Successfully logged out")
       return true;
     } catch (err) {
       return rejectWithValue(err.message);

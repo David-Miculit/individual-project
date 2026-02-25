@@ -14,6 +14,7 @@ export default function MainHeader() {
   ];
 
   if (isAdmin) {
+    navItems.pop()
     navItems.push({ label: "Admin Panel", path: "/admin" });
   }
 

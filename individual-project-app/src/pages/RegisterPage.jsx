@@ -7,7 +7,7 @@ function RegisterForm({setLocalError}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const status = useSelector((state) => state.auth);
+  const status = useSelector((state) => state.auth.status);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -38,6 +38,7 @@ function RegisterForm({setLocalError}) {
         <input
           type="email"
           autoComplete="off"
+          placeholder="email..."
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -50,6 +51,7 @@ function RegisterForm({setLocalError}) {
         <input
           type="password"
           autoComplete="off"
+          placeholder="password..."
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -64,6 +66,7 @@ function RegisterForm({setLocalError}) {
         <input
           type="password"
           autoComplete="off"
+          placeholder="password..."
           required
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
