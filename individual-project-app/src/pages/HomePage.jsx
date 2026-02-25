@@ -8,7 +8,7 @@ export default function HomePage() {
 
       <div className="relative flex flex-col items-center justify-center text-center min-h-[78vh] animate-fade-in">
         <div className="absolute inset-0 bg-black/10 backdrop- -z-10 rounded-xl" />
-        <h1 className="text-6xl font-extrabold mb-2 uppercase tracking-tighter italic bg-gradient-to-b from-slate-100 to-slate-300 bg-clip-text drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">
+        <h1 className="text-6xl font-extrabold mb-2 uppercase tracking-tighter italic drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">
           Your <span className="text-f1red">Race Weekend</span> Hub
         </h1>
 

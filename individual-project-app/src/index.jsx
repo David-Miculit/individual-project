@@ -12,11 +12,12 @@ import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ContactPage from "./pages/ContactPage";
+import SessionPage from "./pages/SessionPage"
+import NotFoundPage from "./pages/NotFoundPage";
 
 
 // placeholders
 const AdminPanel = () => <div>Admin Panel TODO</div>
-const SessionPage = () => <div>Session page TODO</div>
 
 const entryPoint = document.getElementById("root");
 ReactDOM.createRoot(entryPoint).render(
@@ -32,6 +33,7 @@ ReactDOM.createRoot(entryPoint).render(
             <Route path="/admin" element={<AdminPanel/>} />
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </Suspense>
