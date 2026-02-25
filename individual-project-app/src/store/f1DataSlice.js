@@ -18,7 +18,8 @@ export const fetchSessions = createAsyncThunk('f1Data/fetchSessions', async () =
         const response = await fetch(`${API}/sessions?date_start>=${start}&date_start<=${end}`)
         const data = await response.json()
         if(Array.isArray(data)) {
-            return data.sort((a,b) => new Date(b.date_start) - new Date(a.date_start)).slice(0,10)
+          console.log("Sessions data retrieved", data)
+          return data.sort((a,b) => new Date(b.date_start) - new Date(a.date_start))
         }
 })
 
