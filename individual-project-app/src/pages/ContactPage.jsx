@@ -7,16 +7,19 @@ function ContactForm() {
   const user = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if(user.status==="succeeded")
-    {
-      if(user.user.email !== getState("contactDraft").email) {
+    if(user.status==="succeeded") {
+      const draft = getState("contactDraft", null)
+
+      if(draft && draft.email !== user.user.email) {
         localStorage.removeItem("contactDraft")
+      } else if (draft) {
+        setFormData(draft)
+      } else {
+        setFormData({name:"", email: user.user.email, message:""})
       }
-      setFormData(getState("contactDraft", {name:"", email:user.user.email, message:""}))
     } else {
       localStorage.removeItem("contactDraft")
     }
-    console.log(user)
   }, [])
 
   const handleChange = (e) => {
