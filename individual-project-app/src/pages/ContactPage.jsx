@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { saveState, getState } from "../scripts/storage"
 import { useSelector } from "react-redux"
+import AuthCard from "../components/ui/AuthCard";
 
 function ContactForm() {
   const [formData, setFormData] = useState({name:"", email:"", message:""})
@@ -101,13 +102,8 @@ function ContactForm() {
 export default function ContactPage() {
 
   return (
-    <section className="flex flex-col items-center justify-center gap-4 min-h-[70vh] px-4">
-      <div className="w-full max-w-md p-8 border border-zinc-800 rounded-xl bg-zinc-950/50 backdrop-blur-sm">
-        <h2 className="text-3xl font-bold uppercase text-center mb-6">
-          Contact
-        </h2>
+      <AuthCard title="Contact">
         <ContactForm/>
-      </div>
-    </section>
+      </AuthCard>
   )
 }

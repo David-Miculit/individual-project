@@ -24,8 +24,8 @@ export default function MainHeader() {
   };
 
   return (
-    <header className="sticky flex items-center justify-between p-6 border-b border-zinc-900 tracking-widest">
-      <NavLink to="/" className={""}>
+    <header className="flex items-center justify-between p-6 border-b border-zinc-900 tracking-widest">
+      <NavLink to="/">
         <h2 className="text-2xl font-bold italic uppercase hover:text-f1red tracking-tightest">
           F1 HUB
         </h2>
@@ -55,10 +55,7 @@ export default function MainHeader() {
       </nav>
 
       {!user ? (
-        <NavLink
-          to="login"
-          className="text-xs uppercase font-bold  transition px-4 py-2  border border-zinc-900 rounded hover:text-f1red hover:border-f1red"
-        >
+        <NavLink to="login" className="text-xs uppercase font-bold transition px-4 py-2 border border-zinc-900 rounded hover:text-f1red hover:border-f1red">
           Login
         </NavLink>
       ) : (
