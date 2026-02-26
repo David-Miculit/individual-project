@@ -83,7 +83,7 @@ export default function SessionPage() {
 			<SessionPageHeader session={session} />
 			<RaceDirectorNotes sessionKey={id} />
 
-      <div className="bg-zinc-900/80 rounded-lg border border-zinc-800 overflow-x-auto">
+      <div className="bg-zinc-900 rounded-lg border border-zinc-800 overflow-x-auto">
         {loading ? (
           <div className="p-10 text-center text-zinc-500">Processing live timing data...</div>
         ) : (

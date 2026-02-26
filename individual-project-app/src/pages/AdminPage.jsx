@@ -16,7 +16,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8 animate-fade-in">
+    <div className="max-w-5xl py-8 mx-auto space-y-8 animate-fade-in">
       <div className="flex justify-between items-center bg-zinc-900 p-6 rounded-lg border border-zinc-800">
         <h2 className="text-3xl font-black italic uppercase text-f1red">Admin Panel</h2>
         <p className="text-zinc-500 text-sm mt-1">Manage user queries from the Contact form</p>

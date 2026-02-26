@@ -1,21 +1,20 @@
 export default function LeaderboardTable({results =[]}) {
-  console.log("rerender")
   return (
     <table className="w-full text-left whitespace-nowrap">
       <thead className="bg-zinc-950 border-b border-zinc-800">
         <tr>
           <th className="p-4 text-zinc-400 text-xs uppercase w-16 text-center">Pos</th>
-          <th className="p-4 text-zinc-400 text-xs uppercase">Driver</th>
-            <th className="p-4 text-zinc-400 text-xs uppercase text-center">Time</th>
-            <th className="p-4 text-zinc-400 text-xs uppercase text-center">Gap to first</th>
-            <th className="p-4 text-zinc-400 text-xs uppercase text-center">Interval</th>
-            <th className="p-4 text-zinc-400 text-xs uppercase text-center">Laps Run</th>
+          <th className="p-4 text-zinc-400 text-xs uppercase w-24 text-center">Driver</th>
+          <th className="p-4 text-zinc-400 text-xs uppercase text-center">Time</th>
+          <th className="p-4 text-zinc-400 text-xs uppercase text-center">Gap to first</th>
+          <th className="p-4 text-zinc-400 text-xs uppercase text-center">Interval</th>
+          <th className="p-4 text-zinc-400 text-xs uppercase text-center">Laps Run</th>
         </tr>
       </thead>
       <tbody>
         {results.map((res) => (
           <tr key={res.driver_number} className="border-b border-zinc-800/50 hover:bg-zinc-800/30 transition">
-            <td className="p-4 font-mono text-xl font-black text-zinc-400 text-center">{res.position}</td>
+            <td className="p-4 text-xl font-bold text-zinc-400 text-center">{res.position}</td>
             <td className="p-4 flex items-center gap-4">
               <div className="w-1 h-8 rounded-full" style={{ backgroundColor: `#${res.driver.team_colour || '555'}` }}></div>
               <div>
