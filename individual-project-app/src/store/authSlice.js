@@ -18,7 +18,6 @@ export const loginUser = createAsyncThunk(
         throw profileError;
       }
 
-      console.log("Logged in with credentials", authData.user, profileData)
       return {
         user: authData.user,
         isAdmin: profileData.is_admin,
@@ -47,7 +46,6 @@ export const registerUser = createAsyncThunk(
         }
       }
 
-      console.log("User sign in with credentials", data.user)
       return {
         user: data.user,
         isAdmin,
@@ -60,14 +58,13 @@ export const registerUser = createAsyncThunk(
 
 export const logoutUser = createAsyncThunk(
   "auth/logoutUser",
-  async (__dirname, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const { error } = await supabase.auth.signOut();
       if (error) {
         throw error;
       }
 
-      console.log("Successfully logged out")
       return true;
     } catch (err) {
       return rejectWithValue(err.message);
@@ -82,7 +79,14 @@ const authSlice = createSlice({
     setSession: (state, action) => {
       state.user = action.payload.user;
       state.isAdmin = action.payload.isAdmin;
+      state.status = action.payload.user ? "succeeded": "idle"
     },
+    clearAuthFlags: (state) => {
+      state.user = null
+      state.isAdmin = false
+      state.status = "idle"
+      state.error = null
+    }
   },
   extraReducers: (builder) => {
     builder

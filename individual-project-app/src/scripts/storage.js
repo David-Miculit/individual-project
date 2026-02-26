@@ -1,4 +1,4 @@
-export const getState = (key, defaultValue=[]) => {
+export const getState = (key, defaultValue=null) => {
     try {
         const data = localStorage.getItem(key)
         if(data === null)

@@ -13,15 +13,29 @@ const getFilters = () => {
     }
 }
 
-export const fetchSessions = createAsyncThunk('f1Data/fetchSessions', async () => {
-        const {start,end} = getFilters()
-        const response = await fetch(`${API}/sessions?date_start>=${start}&date_start<=${end}`)
-        const data = await response.json()
-        if(Array.isArray(data)) {
-          console.log("Sessions data retrieved", data)
-          return data.sort((a,b) => new Date(b.date_start) - new Date(a.date_start))
-        }
-})
+export const fetchSessions = createAsyncThunk(
+  'f1Data/fetchSessions', 
+  async (_, rejectWithValue) => {
+    const {start,end} = getFilters()
+    try {
+      const response = await fetch(`${API}/sessions?date_start>=${start}&date_start<=${end}`)
+
+      if(!response.ok) {
+        return rejectWithValue(`API error: ${response.status} ${response.statusText}`)
+      }
+
+      const data = await response.json()
+      
+      if(data && data.length!=0) {
+        return data.sort((a,b) => new Date(b.date_start) - new Date(a.date_start))
+      } else {
+        return rejectWithValue(`No sessions data`)
+      }
+    } catch (err) {
+      return rejectWithValue(err.message ?? "Network error - could not reach API")
+    }
+  }
+)
 
 const f1DataSlice = createSlice({
     name: 'f1Data', 
