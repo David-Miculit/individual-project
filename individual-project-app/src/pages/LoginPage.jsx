@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../store/authSlice";
 import { useNavigate, NavLink } from "react-router-dom";
+import AuthCard from "../components/ui/AuthCard";
+import ErrorBanner from "../components/ui/ErrorBanner";
 
 function LoginForm() {
   const dispatch = useDispatch()
@@ -42,7 +44,7 @@ function LoginForm() {
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-3 bg-zinc-900 border rounded focus: border-zinc-700 focus:border-f1red focus:outline-none transition"
+          className="w-full p-3 bg-zinc-900 border rounded border-zinc-700 focus:border-f1red focus:outline-none transition"
         />
       </div>
 
@@ -68,20 +70,9 @@ export default function LoginPage() {
   const error = useSelector((state) => state.auth.error)
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[70vh] px-4">
-      <div className="w-full max-w-md p-8 border border-zinc-800 rounded-xl bg-zinc-950/50 backdrop-blur-sm">
-        <h2 className="text-3xl font-bold uppercase text-center mb-6">
-          Login
-        </h2>
-
-        {error && (
-          <div className="mb-4 p-3 text-sm text-red-500 bg-red-500/10 border border-red-500/20 rounded">
-            {error}
-          </div>
-        )}
-
-        <LoginForm/>
-      </div>
-    </div>
+    <AuthCard title="Login">
+      <ErrorBanner message={error} />
+      <LoginForm/>
+    </AuthCard>
   );
 }
