@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import f1Bg from "../assets/f1bg.jpg"
+import f1Bg from "../assets/f1bg.webp"
 
 export default function HomePage() {
   return (
