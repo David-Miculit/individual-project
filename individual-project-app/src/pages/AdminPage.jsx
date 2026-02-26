@@ -40,7 +40,7 @@ export default function AdminPage() {
                   <span className="font-bold text-f1red uppercase">{msg.name} ({msg.email})</span>
                   <span className="text-zinc-500">{new Date(msg.date).toLocaleString()}</span>
                 </div>
-                <p className="text-zinc-300 leading-relaxed">{msg.name}</p>
+                <p className="text-zinc-300 leading-relaxed">{msg.message}</p>
               </div>
             ))}
           </div> 
