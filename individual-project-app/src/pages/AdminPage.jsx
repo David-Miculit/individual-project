@@ -1,6 +1,5 @@
-import { useState, useEffect, useEffectEvent } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { getState, saveState } from "../scripts/storage";
 
 export default function AdminPage() {

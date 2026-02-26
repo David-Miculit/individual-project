@@ -60,8 +60,25 @@ export default function DashboardPage() {
     return result
   }, [sessions, sortOrder])
 
-  if (status === "loading") return <Spinner />
-
+  if (status === "loading") {
+    return <Spinner />
+  }
+  if (status === "failed") {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-8 space-y-10 animate-fade-in">
+        <div className="flex flex-col items-center justify-center min-h-[70vh] gap-4 text-center">
+          <p className="text-f1red text-lg font-bold uppercase">Failed to load sessions</p>
+          <p className="text-zinc-500 text-sm">{"An unexpected error occurred. Please try again."}</p>
+          <button
+            onClick={() => dispatch(fetchSessions())}
+            className="mt-2 px-6 py-2 text-xs font-bold uppercase border border-zinc-700 rounded hover:bg-zinc-800 transition"
+          >
+            Retry
+          </button>
+        </div>
+      </div>      
+    )
+  }
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 space-y-10 animate-fade-in">
       <DashboardHeader filterType={filterType} sortOrder={sortOrder} onSortToggle={handleSortToggle} onFilterChange={handleFilterChange}/>
