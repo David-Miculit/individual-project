@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { saveState, getState } from "../scripts/storage"
 import { useSelector } from "react-redux"
 import AuthCard from "../components/ui/AuthCard";
+import Spinner from "../components/Spinner";
 
 function ContactForm() {
   const [formData, setFormData] = useState({name:"", email:"", message:""})
@@ -21,7 +22,7 @@ function ContactForm() {
     } else {
       localStorage.removeItem("contactDraft")
     }
-  }, [])
+  }, [user.status])
 
   const handleChange = (e) => {
     const updated = {...formData, [e.target.name]: e.target.value}
@@ -34,7 +35,7 @@ function ContactForm() {
     const inbox = getState("adminMessages", [])
     saveState("adminMessages", [{...formData, id: Date.now(), date: new Date().toISOString()}, ...inbox])
     localStorage.removeItem("contactDraft")
-    setFormData({name:"", email:user.user.email, message:""})
+    setFormData({name:"", email:user.user?.email, message:""})
     alert("Message sent to admin")
   }
 
@@ -61,8 +62,10 @@ function ContactForm() {
             type="email"
             placeholder="email..."
             required
+            readOnly
             value={formData.email}
-            className="w-full p-3 bg-zinc-900 border border-zinc-700 rounded focus:border-f1red focus:outline-none transition"
+            onChange={(e) => {e.preventDefault()}}
+            className="w-full p-3 bg-zinc-900 border border-zinc-700 rounded focus:outline-none transition"
           />
         </div>
 
@@ -89,13 +92,13 @@ function ContactForm() {
         </button>
       </form>
     )
-  } else {
+  } else if(user.status === "idle") {
     return (
       <div className="mb-4 p-3 text-sm text-red-500 bg-red-500/10 border border-red-500/20 rounded">
         Please log in if you want to send feedback. Thank you
       </div>
     )
-  }
+  } 
 
 }
 

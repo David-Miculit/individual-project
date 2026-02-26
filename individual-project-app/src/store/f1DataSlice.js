@@ -15,7 +15,7 @@ const getFilters = () => {
 
 export const fetchSessions = createAsyncThunk(
   'f1Data/fetchSessions', 
-  async (_, rejectWithValue) => {
+  async (_, {rejectWithValue}) => {
     const {start,end} = getFilters()
     try {
       const response = await fetch(`${API}/sessions?date_start>=${start}&date_start<=${end}`)
@@ -47,7 +47,7 @@ const f1DataSlice = createSlice({
                 state.status = 'loading'
             })
             .addCase(fetchSessions.fulfilled, (state, action) => {
-                state.status = 'succeeded',
+                state.status = 'succeeded'
                 state.sessions = action.payload
             })
             .addCase(fetchSessions.rejected, (state, action) => {
