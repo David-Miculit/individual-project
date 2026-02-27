@@ -1,4 +1,5 @@
-export default function LeaderboardTable({results =[]}) {
+import { memo } from "react"
+export default memo(function LeaderboardTable({results =[]}) {
   return (
     <table className="w-full text-left whitespace-nowrap">
       <thead className="bg-zinc-950 border-b border-zinc-800">
@@ -32,4 +33,4 @@ export default function LeaderboardTable({results =[]}) {
       </tbody>
     </table>
   )
-}
+})

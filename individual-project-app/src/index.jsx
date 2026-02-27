@@ -8,9 +8,8 @@ import ProtectedRoute from "./components/routing/ProtectedRoute";
 import "./index.css";
 import { store } from "./store/store";
 import MainLayout from "./layouts/MainLayout";
-import Spinner from "./components/Spinner";
+import HomePage from "./pages/HomePage";
 
-const HomePage = lazy(() => import("./pages/HomePage"));
 const DashboardPage = lazy(() => import("./pages/DashboardPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));

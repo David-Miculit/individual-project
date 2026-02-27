@@ -3,7 +3,8 @@ import f1Bg from "../assets/f1bg.webp"
 
 export default function HomePage() {
   return (
-    <section className="relative bg-cover bg-center" style={{ backgroundImage: `url(${f1Bg})` }}>
+    <section className="relative bg-cover bg-center" >
+      <img src={f1Bg} alt="" fetchPriority="high" className="absolute inset-0 w-full h-full object-cover object-center" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-black" />
 
       <div className="relative flex flex-col items-center justify-center text-center min-h-[78vh] animate-fade-in">
